@@ -1,0 +1,77 @@
+<!-- result.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="/static/styles/result.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/result.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>Analysis Result</h1>
+        <div class="initial-header">
+            <h3>Uploaded File: {{ filename }}</h3> <!-- Display filename -->
+        </div>
+
+        <!-- <div class="spectogram">
+            <h3>Spectogram of the uploaded audio</h3>
+            <img src="data:image/png:base64, {{ spectogram_base64 }}" alt="spectogram">
+        </div> -->
+
+        <div class="result-display">
+            <h3>AI Generated Probability:</h3>
+            <h2>{{ result_probability }}%</h2>
+            <h3>Final Classification:</h3>
+            <h2> {{ result_label }} </h2>
+        </div>
+
+        <!-- <div class="result-display">
+            <h3>AI Generated Probability:</h3>
+            <h2>{{ result_probability }}%</h2>
+            <h3>Final Classification:</h3>
+            <h2>{{ result_label }}</h2>
+        </div> -->
+
+        <div class="disclaimer">
+            <h3>Disclaimer:</h3>
+            <p>This classification/detection mechanism is not always accurate. Please do not use this as the sole basis
+                to
+                determine if an audio is AI-generated or not. This tool is just to help you get an approximate overview.
+                The
+                results generated should only be considered as a strong signal.
+            </p>
+            <br>
+            <p>Please also note that after uploading a file if you see probability to be 0%, there are higher chances that the audio file is a real human voice.</p>
+        </div>
+
+        <!-- Add Download Result button -->
+        <div class="download-btn">
+            <button id="download-btn">Download Result</button>
+        </div>
+
+        <button id="back-btn" onclick="backBtnRedirect()" >Go back</button>
+
+    </div>
+
+    <script type="text/javascript" >
+        const backBtnRedirect = () => {
+            window.location.href = "/upload";
+        }
+
+        document.getElementById('download-btn').addEventListener('click', function() {
+            html2canvas(document.body).then(function(canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'result.png';
+                link.click();
+            });
+        });
+    </script>
+</body>
+
+</html>

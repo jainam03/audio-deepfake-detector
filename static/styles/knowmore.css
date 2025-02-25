@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    transition: 0.4s;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width:1100px;
+    /* Adjusted max-width for better readability on smaller screens */
+    padding: 20px;
+    margin: 20px;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+main-container header {
+    text-align: center;
+}
+
+.about-tortoise,
+.tortoise-working,
+.custom-model,
+.diagrams,
+.what-we-did {
+    width: 100%;
+}
+
+.about-tortoise article,
+.tortoise-working article,
+.custom-model article,
+.diagrams article,
+.what-we-did article{
+    width: 100%;
+}
+
+.main-container h1 {
+    text-decoration: underline;
+}
+
+.main-container a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.main-container a:hover {
+    color: #3a54bb;
+    border-bottom: 1px solid #3a54bb;
+}
+
+.about-tortoise h2,
+.tortoise-working h2,
+.custom-model h2,
+.diagrams h2,
+.what-we-did h2{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.about-tortoise p,
+.tortoise-working p,
+.custom-model p{
+    text-align: justify;
+}
+
+.diagrams p {
+    text-align: center;
+}
+
+.custom-model h3 {
+    margin-top: 20px;
+}
+
+.custom-model ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.custom-model li {
+    margin-bottom: 10px;
+}
+
+/*center the img container*/
+.main-container img {
+    display: block;
+    margin: 0 auto;
+}
+
+.back-link {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.back-link button {
+    padding: 10px 20px;
+    background-color: #3a54bb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back-link button:hover {
+    background-color: #2e4372;
+}
+
+.back-link button:active {
+    background-color: #3a54bb;
+
+}
+
+footer {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.what-we-did p {
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px){
+    body {
+        transition: 0.1s;
+    }
+
+    .main-container {
+        width: 90vw;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .main-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .about-tortoise h2,
+    .tortoise-working h2,
+    .custom-model h2,
+    .diagrams h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-tortoise p,
+    .tortoise-working p,
+    .custom-model p {
+        font-size: 1rem;
+    }
+
+    .custom-model h3 {
+        font-size: 1.2rem;
+    }
+
+    .custom-model ul {
+        font-size: 1rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+
+    .main-container img {
+        width: 100%;
+    }
+
+    .main-container a {
+        font-size: 1rem;
+    }
+
+    .main-container a:hover {
+        border-bottom: none;
+    }
+
+    .main-container {
+        gap: 10px;
+        margin: 20px 30px ;
+    }
+
+    .main-container header {
+        font-size: 1.5rem;
+    }
+
+    .main-container article {
+        font-size: 1rem;
+    }
+
+    .main-container {
+        gap: 10px;
+    }
+
+    .main-container header {
+        font-size: 1.5rem;
+    }
+
+    .main-container article {
+        font-size: 1rem;
+    }
+
+    .main-container {
+        gap: 10px;
+    }
+
+    .main-container header {
+        font-size: 1.5rem;
+    }
+
+    .main-container article {
+        font-size: 1rem;
+    }
+
+    .main-container {
+        gap: 10px;
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore more about the Tortoise-TTS platform and its applications in deepfake detection.">
+    <meta name="keywords" content="Tortoise-TTS, text-to-speech, deepfake detection, voice synthesis, RNN, LSTM">
+    <meta name="author" content="Your Name">
+
+    <title>Know more</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/knowmore.css') }}">
+    <link rel="stylesheet" href="/static/styles/knowmore.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <h1> 🤖About this Platform 🤖</h1>
+        </header>
+
+        <section class="about-tortoise">
+            <article>
+                <p>This platform is built on a text-to-speech model known as <a
+                        href="https://github.com/neonbjb/tortoise-tts" target="_blank">Tortoise-TTS</a>. Originally
+                    designed for speech generation, we reverse-engineered it to identify artificially generated speech
+                    i.e., Voice Deepfakes.</p>
+            </article>
+
+            <article>
+                <h2>Tortoise-TTS</h2>
+                <p>
+                    Tortoise-TTS offers impressive capabilities in generating diverse, natural-sounding voices and
+                    replicating specific speakers. While powerful, it requires technical expertise and significant
+                    computing resources for setup and operation, making it more complex than alternative systems. If
+                    your
+                    priority is high-quality, customizable speech with voice cloning, and you possess the technical
+                    know-how, Tortoise-TTS could be a valuable tool. But for simpler needs or applications requiring
+                    real-time speech generation, exploring other options might be more appropriate.
+                </p>
+            </article>
+
+            <article>
+                <h2>Tortoise-TTS in Deepfake Detection</h2>
+                <p>
+                    While primarily a powerful text-to-speech tool, Tortoise-TTS also holds potential for deepfake voice
+                    detection. Its creator, James Betker, offers a Python script within the project called
+                    "is_this_from_tortoise.py" specifically for this purpose. It analyzes audio for specific
+                    characteristics often present in Tortoise-TTS generated speech, offering a high confidence level in
+                    identifying such deepfakes. However, it's important to note that deepfake detection is an evolving
+                    field, and this script may not be foolproof against all methods or future advancements.
+                </p>
+            </article>
+        </section>
+
+        <section class="tortoise-working">
+            <article>
+                <h2>🐢Working of Tortoise 🐢</h2>
+                <p>
+                    <strong>Acoustic Feature Analysis:</strong> Tortoise-TTS can extract various acoustic features from
+                    a
+                    voice sample, such as pitch, formant frequencies, energy levels, and prosody. These features can
+                    then
+                    be compared to the acoustic features of known real voices to identify any significant differences.
+                    For example, deepfake voices often have unnatural pitch contours or formant frequencies outside the
+                    typical range for human voices.
+                </p>
+            </article>
+
+            <article>
+                <p><strong>Voice Synthesis:</strong> Tortoise-TTS can synthesize speech from a text prompt. This
+                    synthetic speech can be used to train deepfake detection models. The deepfake detection models can
+                    learn to identify the subtle differences between real voices and deepfake voices by training on a
+                    dataset of real and synthetic voices.</p>
+            </article>
+        </section>
+
+        <section class="custom-model">
+            <article>
+                <h2>🧠Our Custom RNN 🧠</h2>
+                <p>
+                    Our custom Recurrent Neural Network (RNN) is designed for voice classification, specifically
+                    distinguishing between fake and real voices. This RNN leverages the power of Long Short-Term Memory
+                    (LSTM) units to effectively capture temporal dependencies in audio sequences.
+                </p>
+
+                <h3>Key Features:</h3>
+                <ul>
+                    <li><strong>Input Processing:</strong> The model preprocesses audio data, including resampling,
+                        trimming, and flattening, ensuring uniformity in input dimensions.</li>
+                    <li><strong>Sequence Padding:</strong> To handle variable-length sequences, we employ sequence
+                        padding, ensuring consistent input sizes by extending or truncating audio samples.</li>
+                    <li><strong>LSTM Architecture:</strong> The core of the model consists of LSTM layers, allowing it
+                        to effectively learn and remember patterns over extended temporal contexts.</li>
+                    <li><strong>Dropout for Regularization:</strong> A dropout layer is incorporated to prevent
+                        overfitting by randomly dropping connections during training.</li>
+                    <li><strong>Classification Layer:</strong> The final linear layer performs classification,
+                        distinguishing between fake (label 1) and real (label 0) voices.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="what-we-did" >
+            <article>
+                <h2>What we did then? 🤔</h2>
+                <p>We ensembled the Tortoise-TTS(as a deepfake detector) with our Custom RNN.</p>
+            </article>
+        </section>
+
+        <section class="diagrams">
+            <article>
+                <h2>📉Training loss diagram 📈</h2>
+                <!-- for testing -->
+                <!-- <img src="/static/images/line_plot.png" alt="line_plot"> -->
+                <img src="{{ url_for('static', filename='images/line_plot.png') }}" alt="line_plot">
+                <p>This is a loss values vs Iterations plot, which shows the average loss value over each iteration</p>
+            </article>
+            <article>
+                <h2>📊Accuracy score diagram📊</h2>
+                <!-- for testing -->
+                <!-- <img src="/static/images/bar_chart.png" alt="bar_chart"> -->
+                <img src="{{ url_for('static', filename='images/bar_chart.png') }}" alt="bar_chart">
+                <p>This diagram is an accuracy score comparison of Tortoise vs Custorm RNN</p>
+            </article>
+        </section>
+    </div>
+
+    <div class="back-link">
+        <button id="go-back" onclick="goBackToUploadRoute()" >Go back</button>
+    </div>
+    <footer>
+        <p>&copy; 2021 Tortoise-TTS. All rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript" >
+        const goBackToUploadRoute = () => {
+            try {
+                window.location.href = "/upload";
+            } catch(error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+
+    /* Add the following properties */
+    display: flex;
+    flex-direction: column;
+
+    transition: 0.2s;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background-color: #3a54bb;
+
+    padding: 25px 10px;
+
+    letter-spacing: 1.5px;
+}
+
+.navbar .nav-name {
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 20px;
+
+    color: #fff;
+}
+
+.navbar .nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 5px 20px;
+
+}
+
+.navbar .nav-links li {
+    list-style: none;
+    position: relative;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.navbar .nav-links a:hover {
+    text-decoration: underline;
+}
+
+.hero-container {
+    width: 100%;
+    height: 65vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0px 20px 10px 0px;
+}
+
+.hero-container .img-container {
+    width: 85%;
+    height: 100%;
+    padding: 0;
+
+    border: none;
+}
+
+.hero-container .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+
+    border-radius: 0 0 10px 0;
+
+    /* border-radius: 1rem; */
+}
+
+.hero-container .hero-text {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    letter-spacing: 4px;
+    line-height: 50px;
+}
+
+.hero-container .hero-text article h1 {
+    font-size: 45px;
+
+    margin: 20px 0;
+    line-height: 70px;
+}
+
+.hero-container .hero-text article h2 {
+    font-style: italic;
+    line-height: 60px;
+}
+
+.hero-container .hero-text article h3 {
+    font-style: italic;
+    line-height: 60px;
+}
+
+.mid-container {
+    margin: 20px 0;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    /* gap: 10px; */
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 40px;
+}
+
+.mid-container .midcontainer-1 {
+    width: 50%;
+    align-self: flex-start;
+    line-height: 68px;
+
+    letter-spacing: 2.5px;
+}
+
+.mid-container .midcontainer-2 {
+    width: 60%;
+
+    /*align the container to the extreme right*/
+    align-self: flex-end;
+
+    line-height: 68px;
+    letter-spacing: 2.5px;
+
+}
+
+.bottom-section {
+    width: 100%;
+    height: 100% auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    font-size: 25px;
+    font-weight: 600;
+
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.bottom-section .section-text {
+    color: #3a54bb;
+    letter-spacing: 1.5px;
+
+    font-size: 55px;
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+.bottom-section .signup-redirect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 0;
+    margin: 4px 0;
+}
+
+.bottom-section .signup-redirect button {
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    font-size: 45px;
+    min-width: 350px;
+    padding: 20px 25px;
+
+    border: none;
+    outline: none;
+    border-radius: 10px;
+
+    background-color: #3a54bb;
+    color: #fff;
+
+    transition: 0.3s;
+}
+
+.bottom-section .signup-redirect button:hover {
+    background-color: #2e4397;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.buttom-section .signup-redirect button:active {
+    background-color: #3a54bb;
+}
+
+.bottom-section .signup-redirect button:focus {
+    background-color: #2e4397;
+
+}
+
+.footer {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    padding: 10px 0;
+
+    line-height: 35px;
+}
+
+.footer .footer-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #6a6971;
+    letter-spacing: 2px;
+}
+
+.footer .github-logo {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 0;
+}
+
+.footer .github-logo a {
+    color: #3f3f3f;
+}
+

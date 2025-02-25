@@ -1,0 +1,213 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+    <title>Voice Deepfakes Detector</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="title">
+            <h1>FAKE BREAKER</h1>
+        </div>
+        <div class="nav-links">
+            <li>
+                <a href="{{ url_for('knowmore') }}">About the project</a>
+                <a href="" onclick="githubAlert()">Github</a>
+                <a href="{{ url_for('signout') }}" , onclick="signOut()">Sign out</a>
+            </li>
+        </div>
+    </div>
+    <br>
+    <div class="main">
+        <div class="header">
+            <h1>Let's Unmask The Digital Deception! 💪🏼</h1>
+        </div>
+
+        <div class="main-card">
+            <div class="form-container">
+                <form action="{{ url_for('upload') }}" method="POST" id="upload-form" enctype="multipart/form-data">
+                    <label for="file">Choose a file</label>
+                    <input type="file" id="file" name="file" accept=".wav, .mp3" required>
+
+                    <div class="upload-btn">
+                        <input type="submit" id="submit" value="Upload and Analyze">
+                    </div>
+                </form>
+            </div>
+
+            <div class="loader-div" id="loader">
+                <div id="loading"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // Redirect to the results page
+                        window.location.href = '/results';
+                    } else {
+                        console.error('Error:', xhr.statusText);
+                    }
+                    // Hide the loader when the response is received
+                    document.getElementById('loader').style.display = 'none';
+                } else {
+                    // Show the loader while uploading
+                    document.getElementById('loader').style.display = 'block';
+                }
+            };
+            xhr.send(formData);
+        }
+
+        // Event listener for the form submission
+        const form = document.getElementById('upload-form');
+        form.addEventListener('submit', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            // Call the uploadFile function to handle the file upload
+            uploadFile();
+        });
+
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+    <title>Voice Deepfakes Detector</title>
+    <style>
+        #loader {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            bottom: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        .loader-div {
+            margin-top:13% ;
+        }
+
+        .loader {
+            border: 8px solid #c7c7c7;
+            /* Light grey */
+            border-top: 8px solid #3a54bb;
+            /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="title">
+            <h1>FAKE BREAKER</h1>
+        </div>
+        <div class="nav-links">
+            <li>
+                <a href="{{ url_for('knowmore') }}">About the project</a>
+                <a href="" onclick="githubAlert()">Github</a>
+                <a href="{{ url_for('signout') }}" onclick="signOut()">Sign out</a>
+            </li>
+        </div>
+    </div>
+    <br>
+    <div class="main">
+        <div class="header">
+            <h1>Let's Unmask The Digital Deception! 💪🏼</h1>
+        </div>
+
+        <div class="main-card">
+            <div class="form-container">
+                <form action="{{ url_for('upload') }}" method="POST" id="upload-form" enctype="multipart/form-data">
+                    <label for="file">Choose a file</label>
+                    <input type="file" id="file" name="file" accept=".wav, .mp3" required>
+
+                    <div class="upload-btn">
+                        <input type="submit" id="submit" value="Upload and Analyze">
+                    </div>
+                </form>
+            </div>
+
+            <div class="loader-div" id="loader">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    // Hide the loader when the response is received
+                    document.getElementById('loader').style.display = 'none';
+
+                    if (xhr.status === 200) {
+                        // Redirect to the results page
+                        window.location.href = '/results';
+                    } else {
+                        console.error('Error:', xhr.statusText);
+                    }
+                }
+            };
+
+            // Show the loader while uploading
+            document.getElementById('loader').style.display = 'block';
+            xhr.send(formData);
+        }
+
+        // Event listener for the form submission
+        const form = document.getElementById('upload-form');
+        form.addEventListener('submit', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            // Call the uploadFile function to handle the file upload
+            uploadFile();
+        });
+    </script>
+</body>
+
+</html>
