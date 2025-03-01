@@ -1,0 +1,2 @@
+# Ignore .pth file in the specified location
+/flask-server/audio_classifier.pth
