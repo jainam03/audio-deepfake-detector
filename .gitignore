@@ -1,5 +1,6 @@
 # Ignore .pth file in the specified location
 /flask-server/audio_classifier.pth
+/flask-server/audio_classifier_improved.pth
 
 # Node modules
 node_modules/
